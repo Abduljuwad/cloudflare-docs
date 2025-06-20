@@ -15,8 +15,6 @@ When building complex applications, you may need to work with multiple Workers d
 
 You can run multiple Workers in a single process by passing multiple configuration files to your dev server.
 
-### Example setup
-
 <Steps>
 
 1. Create separate configuration files for each Worker:
@@ -84,8 +82,6 @@ You can run multiple Workers in a single process by passing multiple configurati
 
 </Steps>
 
-### When to use
-
 Use this approach when:
 
 - Workers are closely related or part of the same application
@@ -95,8 +91,6 @@ Use this approach when:
 ## Multiple processes
 
 You can also run each Worker in a separate dev session, each with its own terminal and configuration.
-
-### Example setup
 
 <Steps>
 
@@ -124,19 +118,15 @@ You can also run each Worker in a separate dev session, each with its own termin
 
 </Steps>
 
-### When to use
-
 Use this approach when:
 
 - Each Worker requires a different build configuration
 - Different teams maintain the Workers
 - A Worker only occasionally accesses another, and you prefer the flexibility to run them separately
 
-### Limitations
+Supported Bindings:
 
-The following features have different levels of support across approaches:
-
-| Feature          | Single process (Wrangler) | Multiple processes (Wrangler) | Single process (Vite) |
+| Feature          | Wrangler (Single config)  | Wrangler (Multi config)      | Vite                 |
 |------------------|:-------------------------:|:----------------------------:|:--------------------:|
 | Service Bindings | ✅ Full support            | ❌ Not supported             | ✅ Full support      |
 | Durable Objects  | ⚠️ No RPC support          | ❌ Not supported             | ❌ Not supported     |
@@ -147,8 +137,6 @@ We are actively working to address these limitations in future releases.
 ## Hybrid approach
 
 You can mix the two approaches. For example, run a primary Worker and its auxiliary Workers through `vite dev`, while connecting to another Worker running separately in a `wrangler dev` session.
-
-### Example setup
 
 <Steps>
 
@@ -175,8 +163,6 @@ You can mix the two approaches. For example, run a primary Worker and its auxili
    This approach provides flexibility when working with a mix of related and independent Workers.
 
 </Steps>
-
-### When to use
 
 Use this approach when:
 
